@@ -1,0 +1,2649 @@
+import numpy as np
+
+a = dir(np)
+print(*a, sep="\n")
+print(type(a), len(a))
+
+a = np.random.randint(0, 10, (10, 12))
+n = a.shape[0]
+m = round(0.7*n)
+Ids = np.random.permutation(n)
+Idz = Ids[:m]
+b = a[Idz,:]
+Idz = Ids[m:]
+c = a[Idz,:]
+print(f"{a.shape} {a.dtype}\n{a}")
+print(f"{b.shape} {b.dtype}\n{b}")
+print(f"{c.shape} {c.dtype}\n{c}")
+print(f"\n{Ids}\n")
+
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+b = np.array(a)
+c = b.tolist()
+print(f"{type(a)} {len(a)}\n{a}\n{id(a):#X}\n")
+print(f"{type(b)} {b.shape} {b.dtype}\n{b}\n{id(b):#X}\n")
+print(f"{type(c)} {len(c)}\n{c}\n{id(c):#X}")
+
+a = np.ones((3, 4, 5))
+m, n, k = a.shape
+print(f"{type(a)} {a.dtype} {a.shape}")
+print(f"{m} {n} {k}\n{a.size} {a.ndim}\n{a}")
+
+a = np.ones((4, 5))
+b = a.astype("int")
+c = np.zeros((3, 5), dtype="int")
+d = np.zeros((3, 5), dtype="int64")
+e = c.astype("float")
+f = c.astype("float32")
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+np.who()
+
+a = np.zeros(10)
+b = np.ones(10)
+c = np.eye(5)
+d = np.zeros((4, 10))
+e = np.ones((4, 10))
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.array(42)
+b = np.array([42])
+c = np.array([1, 2, 3, 4, 5, 6])
+d = np.array([[1, 2, 3, 4, 5, 6]])
+e = np.array([[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12]])
+f = np.array([[[ 1,  2,  3,  4, 5, 6],   [ 7,  8,  9, 10, 11, 12]],
+              [[13, 14, 15, 16, 17, 18], [19, 20, 21, 22, 23, 24]],
+              [[25, 26, 27, 28, 29, 30], [31, 32, 33, 34, 35, 36]]])
+print(f"a : {type(a)}, {a.shape}, {a.size}, {a.ndim}, {a.dtype}\n{a}")
+print(f"b : {type(b)}, {b.shape}, {b.size}, {b.ndim}, {b.dtype}\n{b}")
+print(f"c : {type(c)}, {c.shape}, {c.size}, {c.ndim}, {c.dtype}\n{c}")
+print(f"d : {type(d)}, {d.shape}, {d.size}, {d.ndim}, {d.dtype}\n{d}")
+print(f"e : {type(e)}, {e.shape}, {e.size}, {e.ndim}, {e.dtype}\n{e}")
+print(f"f : {type(f)}, {f.shape}, {f.size}, {f.ndim}, {f.dtype}\n{f}")
+
+# a = np.random.randint(1, 10, (3, 5))
+# b = np.random.randint(1, 10, (3, 5))
+a = np.random.randint(1, 10, (3, 1))
+# b = np.random.randint(1, 10, (1, 5))
+b = np.random.randint(1, 10, 5)
+# c = a + b
+# c = np.add(a, b)
+# c = a - b
+# c = np.subtract(a, b)
+c = a * b
+# c = np.multiply(a, b)
+# c = a / b
+# c = np.divide(a, b)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.array([[0, 1, 2, 3, 4], [5, 6, 7, 8, 9]])
+b = np.array([100])
+# b = np.array(100)
+c = np.array([[100], [200]])
+d = a + b
+e = a + c
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.array([1, 2, 3, 4, 5])
+b = np.array([[10], [20], [30]])
+c = a + b
+d = a * b
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+
+a = np.arange(30)
+b = a.reshape(6, 5)
+c = b.transpose()
+d = b.T
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"{id(a):#20X}\n{id(b):#20X}\n{id(c):#20X}\n{id(d):#20X}")
+
+a = np.array([[0, 1, 2, 3, 4], [5, 6, 7, 8, 9]])
+b = 10.1 + a
+c = 10.1 * a
+print(f"a : {type(a)} {a.shape} {a.dtype} {a.itemsize}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype} {b.itemsize}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype} {c.itemsize}\n{c}")
+
+a = np.arange(15, 50, 3)
+b = np.arange(0, 6.01, 0.6)
+print(f"a : {type(a)} {a.shape} {a.itemsize} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.itemsize} {b.dtype}\n{b}")
+
+a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+b = a.copy()
+c = b[0].copy()
+c[3] = 500
+d = b[0]
+e = b[0, :]
+b[0, 0] = 100
+d[1] = 200
+e[2] = 300
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+b = a[:, 1:3]
+c = a[2].copy()
+a[2, 2] = 99.999
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+
+a = np.random.randint(1, 10, (3, 10))
+b = a + a
+c = a - a
+d = a * a
+e = a / a
+f = 2 * a
+g = 100.0 + a
+h = a ** 3
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+print(f"g : {type(g)} {g.shape} {g.dtype}\n{g}")
+print(f"h : {type(h)} {h.shape} {h.dtype}\n{h}")
+
+a = np.array([1, 2, 3, 4, 5, 6])
+b = np.expand_dims(a, axis=0)
+c = np.expand_dims(a, axis=1)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.random.randint(80, 100, (10,))
+b = np.pad(a, (3, 4), 'constant', constant_values=(0, 10))
+c = np.pad(a, (3, 4), 'linear_ramp', end_values=(0, 10))
+d = np.pad(a, (3, 4), 'edge')
+e = np.pad(a, (3, 4), 'minimum')
+f = np.pad(a, (3, 4), 'maximum')
+g = np.pad(a, (3, 4), 'mean')
+h = np.pad(a, (3, 4), 'median')
+i = np.pad(a, (3, 4), 'wrap')
+j = np.pad(a, (3, 4), 'symmetric')
+k = np.pad(a, (3, 4), 'reflect')
+print(f"{a}\n{b}\n{c}\n{d}\n{e}\n{f}\n{g}\n{h}\n{i}\n{j}\n{k}")
+
+a = np.array([0, 0, 1, 1], dtype=bool)
+b = np.array([0, 1, 0, 1], dtype=bool)
+c = np.logical_or(a, b)
+d = np.logical_and(a, b)
+e = np.logical_xor(a, b)
+f = np.logical_not(e)
+print(a, a.dtype)
+print(b, a.dtype)
+print(25*"-")
+print(c, d, e, f, sep="\n")
+c = a | b
+d = a & b
+e = a ^ b
+f = ~e
+print(25*"-")
+print(c, d, e, f, sep="\n")
+
+a = np.array([19, 23, -45, 73])
+b = np.array([25, 15, 29, -41])
+c = np.bitwise_or(a, b)
+d = np.bitwise_and(a, b)
+e = np.bitwise_xor(a, b)
+f = np.bitwise_not(e)
+print(a, b, sep="\n", end="\n\n")
+print(c, d, e, f, sep="\n", end="\n\n")
+c = a | b
+d = a & b
+e = a ^ b
+f = ~e
+print(c, d, e, f, sep="\n", end="\n\n")
+
+a = np.random.randint(-9, 10, (4, 5))
+b = a.sum(axis=0)
+c = a.sum(axis=1)
+d = a.sum()
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+
+a = np.array([[15, 23, 45, 34], [45, 25, 36, 57]], ndmin=4)
+b = a[0,0]
+c = a[0][0]
+d = a[0,0,0]
+e = a[0][0][0]
+f = a[0,0,0,0]
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+
+a = np.random.randint(0, 100, (12,))
+b = np.diff(a)
+c = np.diff(b)
+d = np.diff(a, n = 2)
+print(a, a.shape, b, b.shape, c, c.shape, d, d.shape, sep="\n")
+
+a = np.arange(10)
+b = a[np.newaxis, :]
+c = a[:, np.newaxis]
+d = a.copy()[np.newaxis, :]
+a[0] = 99
+print(a, a.shape, b, b.shape,c, c.shape, d, d.shape, sep="\n")
+
+a = np.random.randint(1, 10, (3, 4))
+b = np.log(a)
+c = np.exp(b)
+d = a - c
+print(a, b, c, d, sep="\n")
+
+a = np.random.rand(3, 4)
+b = np.cos(a*np.pi)
+c = np.arccos(b) / np.pi
+d = a - c
+print(a, b, c, d, sep="\n")
+
+a = np.random.randint(-9, 10, (3, 4))
+b = np.square(a)
+c = np.sqrt(b)
+d = np.power(b, 0.5)
+e = c - d
+print(a, b, c, d, e, sep="\n")
+
+a = np.arange(0, 51)
+b = np.where(a % 10 == 0)
+c = b[0]
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.arange(12).reshape((3, 4))
+b = a.flatten()
+c = a.ravel()
+a[0, 0] = 99
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.arange(1, 13)
+b = a.reshape(3, 4)
+c = np.concatenate((b, b))
+d = np.concatenate((b, b), axis=0)
+e = np.concatenate((b, b), axis=1)
+a[0] = 99
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+print(type(e), e, sep="\n")
+
+a = np.random.uniform(0, 20, (5, 4))
+b = np.sum(a)
+c = np.mean(a)
+d = np.median(a)
+e = np.std(a)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.uniform(0, 20, (5, 4))
+b = a.reshape(20,)
+c = np.median(a)
+d = np.median(b)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.randint(1, 10, 20)
+b = a.var()
+c = a.std()
+d = c ** 2
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.randint(-100, 101, (4, 7))
+b = np.mod(a, 5)
+c = np.mod(a, a)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.random.random((5, 3))
+b = np.array(['Hasan', 'Mehmet', 'Hasan', 'Ali', 'Hasan'])
+c = a[b == 'Hasan']
+d = a[~(b == 'Hasan')]
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.zeros((1e6,), dtype=np.float64)
+b = np.zeros((1e6,), dtype=np.float32)
+%timeit a*a
+%timeit b*b
+
+a = np.random.random((10000000,))
+b = a.astype(np.float32)
+print(a.shape, a.dtype)
+print(b.shape, b.dtype)
+tic = time.time()
+s1 = a * b
+toc = time.time()
+print("Süre",toc-tic,"sec")
+tic = time.time()
+s2 = a * a
+toc = time.time()
+print("Süre",toc-tic,"sec")
+tic = time.time()
+s3 = b * b
+toc = time.time()
+print("Süre",toc-tic,"sec")
+
+a = np.random.randint(11, 100, (3,5))
+b = np.pad(a, [(3, 3), (2,2)], mode='constant', constant_values=0)
+print(a, b, sep="\n")
+
+h, w = np.random.randint(5,13,(2,))
+a = np.random.randint(11, 100, (h,w))
+m = max(h, w)
+top = (m - h) // 2
+bottom = m - h - top
+left = (m - w) // 2
+right = m - w - left
+b = np.pad(a, [(top, bottom), (left, right)], mode='constant', constant_values=0)
+print(a,a.shape,sep="\n")
+print(b,b.shape,sep="\n")
+
+np.savez(fName, xTrain, yTrain, xValid, yValid, xTest, yTest)
+
+Data = np.load(fName)
+xTrain = Data[Data.files[0]]
+yTrain = Data[Data.files[1]]
+xValid = Data[Data.files[2]]
+yValid = Data[Data.files[3]]
+xTest = Data[Data.files[4]]
+yTest = Data[Data.files[5]]
+print("xTrain :", xTrain.shape, type(xTrain), xTrain.dtype)
+print("yTrain :", yTrain.shape, type(yTrain), yTrain.dtype)
+print("xValid :", xValid.shape, type(xValid), xValid.dtype)
+print("yValid :", yValid.shape, type(yValid), yValid.dtype)
+print(" xTest :", xTest.shape, type(xTest), xTest.dtype)
+print(" yTest :", yTest.shape, type(yTest), yTest.dtype)
+
+x = np.pi / 4
+a = np.sin(x)
+b = np.cos(x)
+c = np.tan(x)
+d = np.exp(5)
+e = np.log(d)
+f = np.sqrt(10000)
+print(f"x : {type(x)}\n{x}")
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+
+a = np.pi
+b = np.e
+c = np.exp(1)
+d = np.sqrt(10)
+e = np.power(d, 2)
+f = e - 10
+print(f"a : {type(a)}\n{a}")
+print(f"b : {type(b)}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+
+a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+b = a
+c = a.copy()
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(a == b, a == c, b == c, sep="\n")
+print(np.all(a == b), np.all(a == c), np.all(b == c))
+print(np.array_equal(a, b), np.array_equal(a, c), np.array_equal(b, c))
+print(a is b, a is c, b is c)
+print(f"\n{id(a):#15x}\n{id(b):#15x}\n{id(c):#15x}\n")
+print(f"{id(a[0]):#15x}\n{id(b[0]):#15x}\n{id(c[0]):#15x}")
+
+a = np.random.randint(-9, 10, (3, 5))
+b = np.random.randint(-9, 10, (5, 4))
+c = np.matmul(a, b)
+d = np.dot(a, b)
+e = a @ b
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.random.randint(-9, 10, (4, 4))
+b = np.linalg.inv(a)
+c = np.matmul(a, b)
+d = np.eye(4)
+e = c - d
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+A = np.random.randint(-9, 10, (4, 4))
+b = np.random.randint(-9, 10, (4, 1))
+x = np.linalg.solve(A, b)
+X = np.dot(np.linalg.inv(A), b)
+print(type(A), A, sep="\n")
+print(type(b), b, sep="\n")
+print(type(x), x, sep="\n")
+print(type(X), X, sep="\n")
+
+a = np.random.randint(-9, 10, (3, 5))
+b = np.random.randint(-9, 10, (3, 5))
+c = np.cov(a)
+d = np.cov(b)
+e = np.cov(a, b)
+f = np.cov(b, a)
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+
+a = np.random.randint(-9, 10, (3, 5))
+b = np.random.randint(-9, 10, (3, 5))
+c = np.dot(a, b.T)
+d = np.dot(a.T, b)
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+
+a = np.full((3, 5), 25.0)
+b = 25 * np.ones((3, 5))
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+
+a = np.arange(0, 10)
+b = np.arange(10, 26, 2.5)
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(a[-1], type(a[-1]), sep="\n")
+print(b[-1], type(b[-1]), sep="\n")
+
+a = np.array([-1.7, -1.5, -0.2, 0.2, 1.5, 1.7, 2.0])
+b = np.floor(a)
+c = np.ceil(a)
+d = np.trunc(a)
+e = np.fix(a)
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.random.randint(-5, 5, 10)
+b = a >= 0
+c = np.any(b)
+d = np.all(b)
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+
+a = np.random.randint(-5, 16, (3, 10))
+b = a.copy()
+b[b < 0] = 0
+b[b > 10] = 10
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+
+a = np.array([0.5555, 0.5001, 2/3, np.sqrt(10), np.exp(3), np.pi])
+b = np.round(a, 3)
+c = np.round(a)
+print(a, b, c, sep="\n")
+
+x = np.array([1, -1,  1, -1])
+y = np.array([1,  1, -1, -1])
+q = np.arctan2(y, x)
+qd = np.rad2deg(q)
+qr = np.deg2rad(qd)
+qd2 = qr * 180 / np.pi
+print(x, y, q, qd, qr, qd2, sep="\n")
+print(q == qr)
+print(qd == qd2)
+
+a = np.array([5, 7, 4])
+b = np.array([2, -3, 9])
+c = np.cross(a, b)
+d = np.dot(a, b)
+e = np.dot(a, c)
+f = np.dot(b, c)
+print(a, b, c, d, e, f, sep="\n")
+
+k = 0
+n = 100
+np.random.seed(k)
+a = n * np.random.rand(5, 4)
+np.random.seed(k)
+b = n * np.random.random((5, 4))
+np.random.seed(k)
+c = np.random.uniform(0, n, (5, 4))
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+
+k = 0
+np.random.seed(k)
+a = np.random.choice(100, 15)
+np.random.seed(k)
+b = np.random.randint(0, 100, 15)
+np.random.seed(k)
+c = np.random.choice(100, 15, replace=False)
+np.random.seed(k)
+d = np.random.permutation(100)[:15]
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+
+k = 10
+Mean, Std = 15, 5
+np.random.seed(k)
+a = Mean + Std * np.random.randn(5, 4)
+np.random.seed(k)
+b = np.random.normal(Mean, Std, (5, 4))
+Mean2 = np.mean(a)
+Std2 = np.std(a)
+print(a, b, sep="\n")
+print(f"      Ortalama : {Mean:3}, {Mean2:18}")
+print(f"Standart Sapma : {Std:3}, {Std2:18}")
+
+a = np.arange(20)
+b = np.random.permutation(a)
+c = b.reshape((4, 5))
+d = np.random.permutation(c)
+e = np.random.permutation(d[0])
+print(a, b, c, d, e, sep="\n\n")
+
+a = np.random.randint(10, 100, (4, 10))
+b = a.copy()
+b[b < 70] = 1
+c = b.copy()
+c[[0, 0, 1, 1, 2, 3, 3], [0, 1, 1, 2, 4, 6, 7]] = 0
+print(a, b, c, sep="\n\n")
+
+a = np.random.randint(0, 100, (3, 8))
+b = a % 2 == 0
+c = a.copy()
+c[b] = 0
+print(type(a), a, a.dtype, "", sep="\n")
+print(type(b), b, b.dtype, "", sep="\n")
+print(type(c), c, c.dtype, sep="\n")
+
+a = np.random.choice(15, 10, replace=False)
+b = np.random.choice(15, 10)
+c = np.random.choice(15, 20)
+print(a, b, c, sep="\n")
+
+a = np.random.choice(10, (25, 100))
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print(a[0][0], type(a[0][0]))
+print(a[0, 0], type(a[0, 0]))
+
+x = ['Hasan', 'Ahmet', 'Serdar', 'Recep', 'Sedat', 'Yılmaz', 'Kenan']
+a = np.random.choice(x, 5)
+b = np.random.choice(5, 10, p=[0, 0.2, 0.3, 0.5, 0])
+c = np.random.choice(5, 3, replace=False, p=[0, 0.2, 0.3, 0.5, 0])
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.arange(12).reshape((3, 4))
+b = a.transpose()
+c = a.T
+d = a.reshape(4, 3)
+a[2, 3] = 100
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.arange(12).reshape((3, 4))
+b = a.transpose()
+c = np.transpose(a)
+a[2, 3] = 100
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.random.uniform(0, 10, (5, 4))
+b = np.sum(a)
+c = np.sum(a, axis=0)
+d = np.sum(a, axis=1)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.uniform(0, 10, (3, 4))
+b = a[0, :]
+c = a[0]
+d = a[:, 0]
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.uniform(5, 10, (5,4))
+b = np.amax(a)
+c = np.amax(a, axis=0)
+d = np.amax(a, axis=1)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.uniform(0, 10, (3, 4))
+b = np.corrcoef(a)
+c = a.T
+d = np.corrcoef(c)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = np.random.randint(0, 10, (4, 5))
+b = a.cumsum()
+c = a.cumsum(axis=0)
+d = a.cumsum(axis=1)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.randint(1, 10, 15)
+b = np.random.randint(1, 10, 15)
+c = a * b
+d = np.sum(c)
+e = np.matmul(a, b)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+print("e :", type(e), e.shape, e.dtype)
+print(e)
+
+rng = np.random.default_rng(0)
+a = rng.random(5)
+b = rng.random((3, 4))
+rng = np.random.default_rng(0)
+c = rng.random(5)
+d = rng.random((3, 4))
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.zeros((3, 4))
+b = np.zeros((3, 4), dtype="int")
+c = np.arange(1, 25)
+d = c.astype("float")
+e = np.arange(1, 25, dtype="float")
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+print("e :", type(e), e.shape, e.dtype)
+print(e)
+
+a = np.random.randint(1, 100, (2, 3, 4))
+b = a[0, 0, 0]
+c = a[0][0][0]
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.empty((3, 4))
+b = a + 5
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+
+a = np.arange(1, 21)
+b = a.reshape(4, 5)
+c = b[2:4]
+d = b[0]
+e = b[:, 0]
+f = b[:, 3:5]
+g = f[::-1]
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+print(type(e), e, sep="\n")
+print(type(f), f, sep="\n")
+print(type(g), g, sep="\n")
+
+a = np.array([2, 1, 5, 3, 7, 4, 6, 8])
+b = np.flip(a)
+c = np.sort(a)
+d = np.flip(c)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = 100 * np.random.rand(5)
+b = np.round(a)
+c = np.round(a, 3)
+print(a, b, c, sep="\n")
+
+a = np.random.randint(1, 100, (4, 6))
+b = np.reshape(a, (3, 8))
+c = a.reshape((3, 8))
+a[0, 0] = -1
+print(a, b, c, sep="\n")
+
+a = np.random.randint(0, 100, (3, 8))
+b = np.reshape(a, (4, 6))
+c = a.reshape(4, 6)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.arange(0, 40, 5)
+b = np.linspace(0, 40, 9)
+c = np.linspace(0, 40, num=9)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.linspace(-4, 4, 41)
+b = np.sinc(a)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+
+a = np.mgrid[0:5, 0:4]
+b = np.mgrid[0:5:3j, 0:9:4j]
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+
+a = np.array([1+2j, 3+4j, 5+6*1j])
+b = np.array([True, False, False, True])
+c = np.array(["Bonjour", "Hello", "Hallo"])
+print("a :", type(a), a.shape, a.size, a.ndim, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.size, b.ndim, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.size, c.ndim, c.dtype)
+print(c)
+
+a = np.random.uniform(1, 10, (5,4))
+print(a, end="\n\n")
+for x in a:
+    print(x)
+
+a = np.array([5, 4, 7, 9, 3, 6, 4, 9, 5, 4, 7])
+b = np.unique(a)
+c, d, e = np.unique(a, return_index=True, return_counts=True)
+print(a, b, c, d, e, sep="\n")
+
+a = np.repeat(13, 10)
+b = np.full((3, 2), 7.5)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+
+a = np.power(100, 8)
+b = np.power(100, 8, dtype="int32")
+c = np.power(100, 8, dtype="int64")
+d = np.power(100.0, 8)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = np.iinfo(int)
+b = np.iinfo(np.int32)
+c = np.iinfo(np.int64)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.iinfo(np.int32).max
+b = np.iinfo(np.uint32).max
+c = np.iinfo(np.int64).max
+d = np.iinfo(np.uint64).max
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = np.finfo(np.float32).eps
+b = np.finfo(np.float64).eps
+c = np.float32(1e-8) + np.float32(1)
+d = np.float64(1e-8) + np.float64(1)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = np.arange(1, 41)
+b = a.reshape(4, 10)
+c = b[2:4]
+d = b[3]
+e = b[:, 5]
+f = b[:, 5:6]
+g = b[:, 3:5]
+h = g[::-1]
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+print(type(e), e, sep="\n")
+print(type(f), f, sep="\n")
+print(type(g), g, sep="\n")
+print(type(h), h, sep="\n")
+
+a = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+b = a.T
+c = a.reshape(5, 2)
+d = c.T
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+b = a > 5
+c = a < 5
+d = a[a < 7]
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.arange(24).reshape((2, 3, 4))
+b = a[0, ...]
+c = a[0]
+d = a[..., 0]
+e = a[:, :, 0]
+print(type(a), a, "", sep="\n")
+print(type(b), b, "", sep="\n")
+print(type(c), c, "", sep="\n")
+print(type(d), d, "", sep="\n")
+print(type(e), e, sep="\n")
+
+a = 256*np.random.rand(2, 3, 10)
+b = a.astype("uint8")
+c = b[..., 0:5]
+print(type(a), a, "", sep="\n")
+print(type(b), b, "", sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.random.randint(-5, 6, (4, 7))
+b = np.abs(a)
+c = np.power(a, 2)
+d = a ** 2
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.arange(5) - 2
+b = np.diag(a)
+print(a, b, sep='\n\n')
+
+data = np.loadtxt('data/populations.txt')
+
+a = np.array([[1, 2, 3], [4, 5, 6]])
+a.ravel()
+b = b.reshape((2, 3))
+
+a = np.arange(4)
+a.resize((8,))
+b = np.sort(a, axis=1)
+a.sort(axis=1)
+
+a = np.arange(6)*np.pi/10
+b = np.degrees(a)
+c = b.shape
+d = np.zeros(c)
+e = np.degrees(a, d)
+f = np.all(d == e)
+print(a, b, c, d, e, f, sep="\n")
+
+np.cumsum(a,axis=0)
+
+b = np.array([1, 2e-9, 3e-9] * 1000000)
+b.cumsum()[-1]
+b.sum()
+
+np.exp2([2, 3])
+np.log([1, np.e, np.e**2, 0])
+np.log10([1e-15, -3.])
+np.log2(x)
+
+np.lcm(12, 20)
+np.gcd(12, 20)
+
+np.multiply(2.0, 4.0)
+
+x1 = np.arange(6)
+x2 = [1.0, 2.0, 3.0, 3.0, 2.0, 1.0]
+np.power(x1, 3)
+np.power(x1, x2)
+x2 = np.array([1, 2, 3, 3, 2, 1])
+x1 = np.arange(6)
+x1 ** x2
+
+np.divmod(np.arange(5), 3)
+x = np.arange(5)
+divmod(x, 3)
+
+a = np.array([1+2j, 3+4j, 5+6j])
+a.real
+
+a = np.array([1+2j, 3+4j, 5+6j])
+a.imag
+a.imag = np.array([8, 10, 12])
+
+np.conjugate(1+2j)
+
+I = np.eye(2, dtype='f'); I.dtype
+low, high = np.byte_bounds(I)
+high - low == I.size*I.itemsize
+I = np.eye(2);
+
+x = np.pi * np.linspace(-1, 1, 251)
+y = np.sin(x)
+lr = 1e-6
+a = np.random.randn()
+b = np.random.randn()
+c = np.random.randn()
+d = np.random.randn()
+for n in range(15001):
+    Out = a + b * x + c * x**2 + d * x**3
+    Loss = np.square(Out - y).sum()
+    if n % 1000 == 0:
+        print(n, Loss)
+    Grad = 2.0 * (Out - y)
+    a -= lr * Grad.sum()
+    b -= lr * (Grad * x).sum()
+    c -= lr * (Grad * x**2).sum()
+    d -= lr * (Grad * x**3).sum()
+print(f'\na = {a}\nb = {b}\nc = {c}\nd = {d}\n')
+x = np.array([0, 1/6, 1/4, 1/3, 1/2]) * np.pi
+y = np.sin(x)
+Out = a + b * x + c * x**2 + d * x**3
+for n in range(5):
+    print(y[n], Out[n])
+
+a = 1 + np.arange(12)
+print(type(a), a, sep='\n')
+for n in range(3):
+    if n == 0:
+        b = a.copy()
+    elif n == 1:
+        b = a.reshape(3, 4)
+    else:
+        b = a.reshape(4, 3)
+    print('', b, b.ndim, b.size, b.shape, len(b), sep='\n')
+
+import time
+n = 15000000
+a = np.random.rand(n)
+b = np.random.rand(n)
+tic = time.time()
+c = a[0] * b[0]
+for i in range(1, n):
+    c += a[i] * b[i]
+toc = time.time()
+print(c, type(c))
+print('Süre :', 1000*(toc-tic), 'ms\n')
+tic = time.time()
+d = sum(a * b)
+toc = time.time()
+print(d, type(d))
+print('Süre :', 1000*(toc-tic), 'ms\n')
+tic = time.time()
+f = np.dot(a, b)
+toc = time.time()
+print(f, type(f))
+print('Süre :', 1000*(toc-tic), 'ms\n')
+
+a = np.random.randint(0, 100, (3, 4))
+for row in a:
+    print(row)
+for element in a.flat:
+    print(element)
+
+a = 10*np.random.random((3, 4))
+b = 10*np.random.random((3, 4))
+c = np.floor(a)
+d = np.floor(b)
+e = np.vstack((c, d))
+f = np.hstack((c, d))
+print(type(a), a, sep='\n')
+print(type(b), b, sep='\n')
+print(type(c), c, sep='\n')
+print(type(d), d, sep='\n')
+print(type(e), e, sep='\n')
+print(type(f), f, sep='\n')
+
+a = np.array([7, 2, 1, 9, 1, 3, 2, 9])
+b = a.argsort()
+print(type(a), a, a.dtype, sep='\n')
+print('', type(b), b, b.dtype, sep='\n')
+
+a = np.arange(24).reshape((2, 3, 4))
+np.save('hasan', a)
+b = np.load('hasan.npy')
+print(type(a), a, a.shape, a.dtype, sep='\n')
+print(type(b), b, b.shape, a.dtype, sep='\n')
+
+L1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+A1 = np.array(L1)
+L2 = A1.tolist()
+A2 = np.arange(10)
+A3 = A2.copy()
+print(type(L1), L1, sep="\n", end="\n\n")
+print(type(A1), A1, sep="\n", end="\n\n")
+print(type(L2), L2, sep="\n", end="\n\n")
+print(type(A2), A2, sep="\n", end="\n\n")
+print(type(A3), A3, sep="\n", end="\n\n")
+
+A = np.array([12, 43, 72, 19, 51, 93, 75, 13, 65, 37, 27, 81])
+print(type(A), A, sep="\n")
+for n in range(3):
+    if n == 0:
+        a = A.copy()
+    elif n == 1:
+        a = A.reshape(3,4)
+    else:
+        a = A.reshape(4,3)
+    print()
+    print(a)
+    print(a.ndim)
+    print(a.size)
+    print(a.shape)
+    print(len(a))
+
+a = np.diag(np.arange(4))
+a[2, 1] = 10
+print(a)
+print(a[2])
+
+p = np.polynomial.Polynomial([-1, 2, 3])
+print(p(0))
+print(p.roots)
+print(p.degree())
+
+import numpy as np
+import timeit
+def Sum1(n = 10_000_000):
+    i = 0
+    s = 0
+    while i < n:
+        s += i
+        i += 1
+    return s
+def Sum2(n = 10_000_000):
+    s = 0
+    for i in range(n):
+        s += i
+    return s
+def Sum3(n = 10_000_000):
+    return sum(range(n))
+def Sum4(n = 10_000_000):
+    return np.sum(np.arange(n))
+t1 = timeit.timeit(Sum1, number=1)
+t2 = timeit.timeit(Sum2, number=1)
+t3 = timeit.timeit(Sum3, number=1)
+t4 = timeit.timeit(Sum4, number=1)
+print('Durations')
+print(' Sum 1 :', t1, 'sec')
+print(' Sum 2 :', t2, 'sec')
+print(' Sum 3 :', t3, 'sec')
+print(' Sum 4 :', t4, 'sec')
+
+import numpy as np
+a = np.arange(1000)
+type(a)
+timeit a**2
+b= range(1000)
+type(b)
+timeit [x**2 for x in a]
+
+c = np.hypot(a, b)
+
+x = np.array([0, 30, 45, 60, 90]) * np.pi / 180
+y = map(np.sin, x)
+z = list(y)
+print(x)
+print(y)
+print(z)
+a = np.sin(x)
+print(a)
+
+Mean, Std = 10, 5
+a = np.random.normal(Mean,Std,1000)
+print(a)
+
+a = np.random.randint(0, 10, (1000, 15))
+print(a.shape, a.dtype, a, sep="\n")
+np.savetxt('data.csv', a, fmt='%d', delimiter=',')
+x = np.loadtxt('data.csv', delimiter=',')
+print(x.shape, x.dtype, x, sep="\n")
+np.save('data.npy', a)
+y = np.load('data.npy')
+print(y.shape, y.dtype, y, sep="\n")
+np.savez_compressed('data.npz', a)
+z = np.load('data.npz')['arr_0']
+print(z.shape, z.dtype, z, sep="\n")
+
+x = np.arange(1, 25).reshape(12,2)
+y = np.array([0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0])
+xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size=0.5, , stratify=y)
+print(x, y, xTrain, yTrain, xTest, yTest, sep="\n")
+xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size=0.5, shuffle=False)
+print(x, y, xTrain, yTrain, xTest, yTest, sep="\n")
+
+Ids = np.random.permutation(nAll)
+xAll = xAll[Ids,...]
+yAll = yAll[Ids]
+print(xAll.shape,yAll.shape)
+P2 = int(0.15*xAll.shape[0])
+P1 = xAll.shape[0] - 2*P2
+P1, P2
+xTrain = xAll[0:P1,...]
+yTrain = yAll[0:P1]
+xTest = xAll[P1:P1+P2,...]
+yTest = yAll[P1:P1+P2]
+xValid = xAll[P1+P2:,...]
+yValid = yAll[P1+P2:]
+print("xTrain :", xTrain.shape, type(xTrain), xTrain.dtype)
+print(" xTest :", xTest.shape, type(xTest), xTest.dtype)
+print("xValid :", xValid.shape, type(xValid), xValid.dtype)
+print("yTrain :", yTrain.shape, type(yTrain), yTrain.dtype)
+print(" yTest :", yTest.shape, type(yTest), yTest.dtype)
+print("yValid :", yValid.shape, type(yValid), yValid.dtype)
+
+Im5 = np.swapaxes(Im4, 0, 1)
+img = np.expand_dims(img, axis=-1)
+img = np.repeat(img, 3, 2)
+
+x = np.array([0, 30, 45, 60, 90]) * np.pi / 180
+y = map(np.sin, x)
+z = list(y)
+print(x)
+print(y)
+print(z)
+a = np.sin(x)
+print(a)
+
+import random
+B = [0, 100, 200, 300, 400, 500]
+N = len(B)
+z = random.shuffle(a)
+word = random.choice(WORDS)
+TopN = 10
+a = TopN * [0]
+N = 1000 * TopN
+for n in range(N):
+    k = random.randint(0, TopN - 1)
+    a[k] += 1
+print("\n%s : %d" % ("Çekiliş Sayısı", N))
+print("%8s%9s" % ("Gelen", "Frekans"))
+for k in range(TopN):
+    print("%7d%10d" % (k + 1, a[k]))
+
+a = np.random.randint(11, 100, (15,))
+b = np.pad(a, (3, 4), 'constant', constant_values=(0, 10))
+c = np.pad(a, (3, 4), 'linear_ramp', end_values=(0, 10))
+d = np.pad(a, (3, 4), 'edge')
+e = np.pad(a, (3, 4), 'minimum')
+f = np.pad(a, (3, 4), 'maximum')
+g = np.pad(a, (3, 4), 'mean')
+h = np.pad(a, (3, 4), 'median')
+i = np.pad(a, (3, 4), 'wrap')
+j = np.pad(a, (3, 4), 'symmetric')
+k = np.pad(a, (3, 4), 'reflect')
+print(f"a = {a}\nb = {b}\nc = {c}\nd = {d}\ne = {e}\nf = {f}\ng = {g}\nh = {h}\ni = {i}\nj = {j}\nk = {k}")
+
+a = np.random.randint(11, 100, (3,5))
+b = np.pad(a, [(3, 3), (2,2)], mode='constant', constant_values=0)
+print(a, b, sep="\n")
+
+h, w = np.random.randint(5,13,(2,))
+a = np.random.randint(11, 100, (h,w))
+m = max(h, w)
+top = (m - h) // 2
+bottom = m - h - top
+left = (m - w) // 2
+right = m - w - left
+b = np.pad(a, [(top, bottom), (left, right)], mode='constant', constant_values=0)
+print(a,a.shape,sep="\n")
+print(b,b.shape,sep="\n")
+
+np.savez(fName, xTrain, yTrain, xValid, yValid, xTest, yTest)
+
+Data = np.load(fName)
+xTrain = Data[Data.files[0]]
+yTrain = Data[Data.files[1]]
+xValid = Data[Data.files[2]]
+yValid = Data[Data.files[3]]
+xTest = Data[Data.files[4]]
+yTest = Data[Data.files[5]]
+print("xTrain :", xTrain.shape, type(xTrain), xTrain.dtype)
+print("yTrain :", yTrain.shape, type(yTrain), yTrain.dtype)
+print("xValid :", xValid.shape, type(xValid), xValid.dtype)
+print("yValid :", yValid.shape, type(yValid), yValid.dtype)
+print(" xTest :", xTest.shape, type(xTest), xTest.dtype)
+print(" yTest :", yTest.shape, type(yTest), yTest.dtype)
+
+print("   Name:", np.__name__)
+print("Version:", np.__version__)
+
+a = dir(np)
+print(*a, sep="\n")
+print(type(a), len(a))
+
+a = np.random.randint(0, 10, (10, 12))
+print(a.shape, a.dtype)
+print(a)
+n = a.shape[0]
+m = round(0.7*n)
+Ids = np.random.permutation(n)
+Idz = Ids[:m]
+b = a[Idz,:]
+Idz = Ids[m:]
+c = a[Idz,:]
+print(b.shape, b.dtype)
+print(b)
+print(c.shape, c.dtype)
+print(c)
+
+a = np.random.randint(0, 10, (1000, 15))
+print(a.shape, a.dtype, a, sep="\n")
+np.savetxt('data.csv', a, fmt='%d', delimiter=',')
+x = np.loadtxt('data.csv', delimiter=',')
+print(x.shape, x.dtype, x, sep="\n")
+np.save('data.npy', a)
+y = np.load('data.npy')
+print(y.shape, y.dtype, y, sep="\n")
+np.savez_compressed('data.npz', a)
+z = np.load('data.npz')['arr_0']
+print(z.shape, z.dtype, z, sep="\n")
+
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+b = np.array(a)
+c = b.tolist()
+print(f"a : {type(a)} {len(a)}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {len(c)}\n{c}")
+
+a = np.ones((3, 4, 5))
+m, n, k = a.shape
+print("numpy array", a, sep="\n")
+print(type(m), m)
+print(type(n), n)
+print(type(k), k)
+print(type(a), a.dtype, a.shape, a.size, a.ndim)
+
+a = np.ones((4, 5))
+b = a.astype("int")
+c = np.zeros((3, 5), dtype="int")
+d = np.zeros((3, 5), dtype="int64")
+e = c.astype("float")
+f = c.astype("float32")
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+np.who()
+
+a = np.zeros(10)
+b = np.ones(10)
+c = np.eye(5)
+d = np.zeros((4, 10))
+e = np.ones((4, 10))
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.array(42)
+b = np.array([42])
+c = np.array([1, 2, 3, 4, 5, 6])
+d = np.array([[1, 2, 3, 4, 5, 6]])
+e = np.array([[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12]])
+f = np.array([[[ 1,  2,  3,  4, 5, 6],   [ 7,  8,  9, 10, 11, 12]],
+              [[13, 14, 15, 16, 17, 18], [19, 20, 21, 22, 23, 24]],
+              [[25, 26, 27, 28, 29, 30], [31, 32, 33, 34, 35, 36]]])
+print(f"a : {type(a)}, {a.shape}, {a.size}, {a.ndim}, {a.dtype}\n{a}")
+print(f"b : {type(b)}, {b.shape}, {b.size}, {b.ndim}, {b.dtype}\n{b}")
+print(f"c : {type(c)}, {c.shape}, {c.size}, {c.ndim}, {c.dtype}\n{c}")
+print(f"d : {type(d)}, {d.shape}, {d.size}, {d.ndim}, {d.dtype}\n{d}")
+print(f"e : {type(e)}, {e.shape}, {e.size}, {e.ndim}, {e.dtype}\n{e}")
+print(f"f : {type(f)}, {f.shape}, {f.size}, {f.ndim}, {f.dtype}\n{f}")
+
+a = np.array([[0, 1, 2, 3, 4], [5, 6, 7, 8, 9]])
+b = 10.1 + a
+c = 10.1 * a
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+
+a = np.array([[0, 1, 2, 3, 4], [5, 6, 7, 8, 9]])
+b = np.array([100])
+# b = np.array(100)
+c = np.array([[100], [200]])
+d = a + b
+e = a + c
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.array([1, 2, 3, 4, 5])
+b = np.array([[10], [20], [30]])
+c = a + b
+d = a * b
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+
+a = np.arange(100)
+b = a.reshape(10, 10)
+c = np.arange(15)
+d = np.arange(15.0)
+e = np.arange(15, dtype="float32")
+f = c.reshape(3, 5)
+print(f"a : {type(a)} {a.shape} {a.itemsize} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.itemsize} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.itemsize} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.itemsize} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.itemsize} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.itemsize} {f.dtype}\n{f}")
+
+a = np.arange(15, 50, 3)
+b = np.arange(0, 6.01, 0.6)
+print(f"a : {type(a)} {a.shape} {a.itemsize} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.itemsize} {b.dtype}\n{b}")
+
+a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+b = a.copy()
+c = b[0].copy()
+c[3] = 500
+d = b[0]
+e = b[0, :]
+b[0, 0] = 100
+d[1] = 200
+e[2] = 300
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+b = a[:, 1:3]
+c = a[2].copy()
+a[2, 2] = 99.999
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+
+a = np.random.randint(1, 10, (3, 10))
+b = a + a
+c = a - a
+d = a * a
+e = a / a
+f = 2 * a
+g = 100.0 + a
+h = a ** 3
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+print(f"g : {type(g)} {g.shape} {g.dtype}\n{g}")
+print(f"h : {type(h)} {h.shape} {h.dtype}\n{h}")
+
+x = np.pi / 4
+a = np.sin(x)
+b = np.cos(x)
+c = np.tan(x)
+d = np.exp(5)
+e = np.log(d)
+f = np.sqrt(10000)
+print(f"x : {type(x)}\n{x}")
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+
+a = np.pi
+b = np.e
+c = np.exp(1)
+d = np.sqrt(10)
+e = np.power(d, 2)
+f = e - 10
+print(f"a : {type(a)}\n{a}")
+print(f"b : {type(b)}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+
+a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+b = a
+c = a.copy()
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(a == b, a == c, b == c, sep="\n")
+print(np.all(a == b), np.all(a == c), np.all(b == c))
+print(np.array_equal(a, b), np.array_equal(a, c), np.array_equal(b, c))
+print(a is b, a is c, b is c)
+print(f"\n{id(a):#15x}\n{id(b):#15x}\n{id(c):#15x}\n")
+print(f"{id(a[0]):#15x}\n{id(b[0]):#15x}\n{id(c[0]):#15x}")
+
+a = np.random.randint(-9, 10, (3, 5))
+b = np.random.randint(-9, 10, (5, 4))
+c = np.matmul(a, b)
+d = np.dot(a, b)
+e = a @ b
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.random.randint(-9, 10, (4, 4))
+b = np.linalg.inv(a)
+c = np.matmul(a, b)
+d = np.eye(4)
+e = c - d
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+A = np.random.randint(-9, 10, (4, 4))
+b = np.random.randint(-9, 10, (4, 1))
+x = np.linalg.solve(A, b)
+X = np.dot(np.linalg.inv(A), b)
+print(type(A), A, sep="\n")
+print(type(b), b, sep="\n")
+print(type(x), x, sep="\n")
+print(type(X), X, sep="\n")
+
+a = np.random.randint(-9, 10, (3, 5))
+b = np.random.randint(-9, 10, (3, 5))
+c = np.cov(a)
+d = np.cov(b)
+e = np.cov(a, b)
+f = np.cov(b, a)
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+print(f"f : {type(f)} {f.shape} {f.dtype}\n{f}")
+
+a = np.random.randint(-9, 10, (3, 5))
+b = np.random.randint(-9, 10, (3, 5))
+c = np.dot(a, b.T)
+d = np.dot(a.T, b)
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+
+a = np.full((3, 5), 25.0)
+b = 25 * np.ones((3, 5))
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+
+a = np.array([0, 0, 1, 1], dtype=bool)
+b = np.array([0, 1, 0, 1], dtype=bool)
+c = np.logical_or(a, b)
+d = np.logical_and(a, b)
+e = np.logical_xor(a, b)
+f = np.logical_not(e)
+print(a, type(a), a.dtype)
+print(b, type(b), a.dtype, end="\n\n")
+print(c, type(c), a.dtype)
+print(d, type(d), a.dtype)
+print(e, type(e), a.dtype)
+print(f, type(f), a.dtype)
+
+a = np.array([19, 23, 45, 73])
+b = np.array([25, 15, 29, 41])
+c = np.bitwise_or(a, b)
+d = np.bitwise_and(a, b)
+e = np.bitwise_xor(a, b)
+f = np.bitwise_not(e)
+print(a, b, sep="\n", end="\n\n")
+print(c, d, e, f, sep="\n", end="\n\n")
+c = a | b
+d = a & b
+e = a ^ b
+f = ~e
+print(c, d, e, f, sep="\n", end="\n\n")
+
+a = np.random.randint(-9, 10, (4, 5))
+b = a.sum(axis=0)
+c = a.sum(axis=1)
+d = a.sum()
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+
+a = np.array([1, 2, 3, 4, 5], ndmin=3)
+b = a[0, 0]
+c = a[0][0]
+d = a[0, 0, -1]
+e = a[0][0][-1]
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.arange(0, 10)
+b = np.arange(10, 26, 2.5)
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(a[-1], type(a[-1]), sep="\n")
+print(b[-1], type(b[-1]), sep="\n")
+	
+a = np.array([-1.7, -1.5, -0.2, 0.2, 1.5, 1.7, 2.0])
+b = np.floor(a)
+c = np.ceil(a)
+d = np.trunc(a)
+e = np.fix(a)
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+print(f"e : {type(e)} {e.shape} {e.dtype}\n{e}")
+
+a = np.random.randint(-5, 5, 10)
+b = a >= 0
+c = np.any(b)
+d = np.all(b)
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+
+a = np.random.randint(-5, 16, (3, 10))
+b = a.copy()
+b[b < 0] = 0
+b[b > 10] = 10
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+
+a = np.array([0.5555, 0.5001, 2/3, np.sqrt(10), np.exp(3), np.pi])
+b = np.round(a, 3)
+c = np.round(a)
+print(a, b, c, sep="\n")
+
+x = np.array([1, -1,  1, -1])
+y = np.array([1,  1, -1, -1])
+q = np.arctan2(y, x)
+qd = np.rad2deg(q)
+qr = np.deg2rad(qd)
+qd2 = qr * 180 / np.pi
+print(x, y, q, qd, qr, qd2, sep="\n")
+print(q == qr)
+print(qd == qd2)
+
+a = np.array([5, 7, 4])
+b = np.array([2, -3, 9])
+c = np.cross(a, b)
+d = np.dot(a, b)
+e = np.dot(a, c)
+f = np.dot(b, c)
+print(a, b, c, d, e, f, sep="\n")
+
+k = 0
+n = 100
+np.random.seed(k)
+a = n * np.random.rand(5, 4)
+np.random.seed(k)
+b = n * np.random.random((5, 4))
+np.random.seed(k)
+c = np.random.uniform(0, n, (5, 4))
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+
+k = 0
+np.random.seed(k)
+a = np.random.choice(100, 15)
+np.random.seed(k)
+b = np.random.randint(0, 100, 15)
+np.random.seed(k)
+c = np.random.choice(100, 15, replace=False)
+np.random.seed(k)
+d = np.random.permutation(100)[:15]
+print(f"a : {type(a)} {a.shape} {a.dtype}\n{a}")
+print(f"b : {type(b)} {b.shape} {b.dtype}\n{b}")
+print(f"c : {type(c)} {c.shape} {c.dtype}\n{c}")
+print(f"d : {type(d)} {d.shape} {d.dtype}\n{d}")
+
+k = 10
+Mean, Std = 15, 5
+np.random.seed(k)
+a = Mean + Std * np.random.randn(5, 4)
+np.random.seed(k)
+b = np.random.normal(Mean, Std, (5, 4))
+Mean2 = np.mean(a)
+Std2 = np.std(a)
+print(a, b, sep="\n")
+print(f"      Ortalama : {Mean:3}, {Mean2:18}")
+print(f"Standart Sapma : {Std:3}, {Std2:18}")
+
+a = np.arange(20)
+b = np.random.permutation(a)
+c = b.reshape((4, 5))
+d = np.random.permutation(c)
+e = np.random.permutation(d[0])
+print(a, b, c, d, e, sep="\n\n")
+
+a = np.random.randint(10, 100, (4, 10))
+b = a.copy()
+b[b < 70] = 1
+c = b.copy()
+c[[0, 0, 1, 1, 2, 3, 3], [0, 1, 1, 2, 4, 6, 7]] = 0
+print(a, b, c, sep="\n\n")
+
+a = np.random.randint(0, 100, (3, 8))
+b = a % 2 == 0
+c = a.copy()
+c[b] = 0
+print(type(a), a, a.dtype, "", sep="\n")
+print(type(b), b, b.dtype, "", sep="\n")
+print(type(c), c, c.dtype, sep="\n")
+
+a = np.random.choice(15, 10, replace=False)
+b = np.random.choice(15, 10)
+c = np.random.choice(15, 20)
+print(a, b, c, sep="\n")
+
+a = np.random.choice(10, (25, 100))
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print(a[0][0], type(a[0][0]))
+print(a[0, 0], type(a[0, 0]))
+
+x = ['Hasan', 'Ahmet', 'Serdar', 'Recep', 'Sedat', 'Yılmaz', 'Kenan']
+a = np.random.choice(x, 5)
+b = np.random.choice(5, 10, p=[0, 0.2, 0.3, 0.5, 0])
+c = np.random.choice(5, 3, replace=False, p=[0, 0.2, 0.3, 0.5, 0])
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.arange(12).reshape((3, 4))
+b = a.transpose()
+c = a.T
+d = a.reshape(4, 3)
+a[2, 3] = 100
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.arange(12).reshape((3, 4))
+b = a.transpose()
+c = np.transpose(a)
+a[2, 3] = 100
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.random.uniform(0, 10, (5, 4))
+b = np.sum(a)
+c = np.sum(a, axis=0)
+d = np.sum(a, axis=1)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.uniform(0, 10, (3, 4))
+b = a[0, :]
+c = a[0]
+d = a[:, 0]
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.uniform(5, 10, (5,4))
+b = np.amax(a)
+c = np.amax(a, axis=0)
+d = np.amax(a, axis=1)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.uniform(0, 10, (3, 4))
+b = np.corrcoef(a)
+c = a.T
+d = np.corrcoef(c)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = np.random.randint(0, 10, (4, 5))
+b = a.cumsum()
+c = a.cumsum(axis=0)
+d = a.cumsum(axis=1)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.randint(1, 10, 15)
+b = np.random.randint(1, 10, 15)
+c = a * b
+d = np.sum(c)
+e = np.matmul(a, b)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+print("e :", type(e), e.shape, e.dtype)
+print(e)
+
+a = np.random.randint(1, 10, (3, 5))
+b = np.random.randint(1, 10, (3, 5))
+c = a * b
+d = np.multiply(a, b)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.randint(1, 10, (3, 5))
+b = np.random.randint(1, 10, (3, 5))
+c = a / b
+d = np.divide(a, b)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.randint(1, 10, 15)
+b = np.random.randint(1, 10, 15)
+c = a + b
+d = np.add(a, b)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+rng = np.random.default_rng(0)
+a = rng.random(5)
+b = rng.random((3, 4))
+rng = np.random.default_rng(0)
+c = rng.random(5)
+d = rng.random((3, 4))
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.array([1, 3, 4, 7, 2, 6, 9, 5, 0, 8])
+b = np.diff(a)
+c = np.diff(b)
+d = np.diff(a, n = 2)
+print(a, b, c, d, sep="\n")
+
+a = np.zeros((3, 4))
+b = np.zeros((3, 4), dtype="int")
+c = np.arange(1, 25)
+d = c.astype("float")
+e = np.arange(1, 25, dtype="float")
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+print("e :", type(e), e.shape, e.dtype)
+print(e)
+
+a = np.random.randint(1, 100, (2, 3, 4))
+b = a[0, 0, 0]
+c = a[0][0][0]
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.array([1, 2, 3, 4, 5, 6])
+b = np.expand_dims(a, axis=0)
+c = np.expand_dims(a, axis=1)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.empty((3, 4))
+b = a + 5
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+
+a = np.arange(1, 21)
+b = a.reshape(4, 5)
+c = b[2:4]
+d = b[0]
+e = b[:, 0]
+f = b[:, 3:5]
+g = f[::-1]
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+print(type(e), e, sep="\n")
+print(type(f), f, sep="\n")
+print(type(g), g, sep="\n")
+
+a = np.array([2, 1, 5, 3, 7, 4, 6, 8])
+b = np.flip(a)
+c = np.sort(a)
+d = np.flip(c)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = 100 * np.random.rand(5)
+b = np.round(a)
+c = np.round(a, 3)
+print(a, b, c, sep="\n")
+
+a = np.random.randint(1, 100, (4, 6))
+b = np.reshape(a, (3, 8))
+c = a.reshape((3, 8))
+a[0, 0] = -1
+print(a, b, c, sep="\n")
+
+a = np.arange(10)
+b = a[np.newaxis, :]
+c = a[:, np.newaxis]
+a[0] = 99
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.random.randint(1, 10, (4, 5))
+b = np.log(a)
+c = np.exp(b)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.random.rand(3, 4)
+b = np.cos(a*np.pi)
+c = np.arccos(b) / np.pi
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.random.randint(-10, 10, (4, 5))
+b = np.square(a)
+c = np.sqrt(b)
+d = np.power(b, 0.5)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = np.random.randint(0, 100, (3, 8))
+b = np.reshape(a, (4, 6))
+c = a.reshape(4, 6)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.arange(0, 40, 5)
+b = np.linspace(0, 40, 9)
+c = np.linspace(0, 40, num=9)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.linspace(-4, 4, 41)
+b = np.sinc(a)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+
+a = np.mgrid[0:5, 0:4]
+b = np.mgrid[0:5:3j, 0:9:4j]
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+
+a = np.arange(0, 51)
+b = np.where(a % 10 == 0)
+c = np.array(b)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.array([1+2j, 3+4j, 5+6*1j])
+b = np.array([True, False, False, True])
+c = np.array(["Bonjour", "Hello", "Hallo"])
+print("a :", type(a), a.shape, a.size, a.ndim, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.size, b.ndim, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.size, c.ndim, c.dtype)
+print(c)
+
+a = np.random.uniform(1, 10, (5,4))
+print(a, end="\n\n")
+for x in a:
+    print(x)
+
+a = np.arange(12).reshape((3, 4))
+b = a.flatten()
+c = a.ravel()
+a[0, 0] = 99
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.array([5, 4, 7, 9, 3, 6, 4, 9, 5, 4, 7])
+b = np.unique(a)
+c, d, e = np.unique(a, return_index=True, return_counts=True)
+print(a, b, c, d, e, sep="\n")
+
+a = np.repeat(13, 10)
+b = np.full((3, 2), 7.5)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+
+a = np.power(100, 8)
+b = np.power(100, 8, dtype="int32")
+c = np.power(100, 8, dtype="int64")
+d = np.power(100.0, 8)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = np.iinfo(int)
+b = np.iinfo(np.int32)
+c = np.iinfo(np.int64)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.iinfo(np.int32).max
+b = np.iinfo(np.uint32).max
+c = np.iinfo(np.int64).max
+d = np.iinfo(np.uint64).max
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = np.finfo(np.float32).eps
+b = np.finfo(np.float64).eps
+c = np.float32(1e-8) + np.float32(1)
+d = np.float64(1e-8) + np.float64(1)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+
+a = np.arange(1, 41)
+b = a.reshape(4, 10)
+c = b[2:4]
+d = b[3]
+e = b[:, 5]
+f = b[:, 5:6]
+g = b[:, 3:5]
+h = g[::-1]
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+print(type(e), e, sep="\n")
+print(type(f), f, sep="\n")
+print(type(g), g, sep="\n")
+print(type(h), h, sep="\n")
+
+a = np.arange(1, 13)
+b = a.reshape(3, 4)
+c = np.concatenate((b, b))
+d = np.concatenate((b, b), axis=0)
+e = np.concatenate((b, b), axis=1)
+print(type(a), a, sep="\n")
+print(type(b), b, sep="\n")
+print(type(c), c, sep="\n")
+print(type(d), d, sep="\n")
+print(type(e), e, sep="\n")
+
+a = np.random.uniform(0, 20, (5, 4))
+b = np.sum(a)
+c = np.mean(a)
+d = np.median(a)
+e = np.std(a)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.randint(1, 10, 20)
+b = a.var()
+c = a.std()
+d = c ** 2
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+b = a.T
+c = a.reshape(5, 2)
+d = c.T
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+b = a > 5
+c = a < 5
+d = a[a < 7]
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.arange(24).reshape((2, 3, 4))
+b = a[0, ...]
+c = a[0]
+d = a[..., 0]
+e = a[:, :, 0]
+print(type(a), a, "", sep="\n")
+print(type(b), b, "", sep="\n")
+print(type(c), c, "", sep="\n")
+print(type(d), d, "", sep="\n")
+print(type(e), e, sep="\n")
+
+a = 256*np.random.rand(2, 3, 10)
+b = a.astype("uint8")
+c = b[..., 0:5]
+print(type(a), a, "", sep="\n")
+print(type(b), b, "", sep="\n")
+print(type(c), c, sep="\n")
+
+a = np.random.randint(-5, 6, (4, 7))
+b = np.abs(a)
+c = np.power(a, 2)
+d = a ** 2
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+print("d :", type(d), d.shape, d.dtype)
+print(d)
+
+a = np.random.randint(-100, 101, (4, 7))
+b = np.mod(a, 5)
+c = np.mod(a, a)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.random.randint(-100, 101, (4, 7))
+b = np.divide(a, 2)
+c = np.divide(a, a)
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.random.random((5, 3))
+b = np.array(['Hasan', 'Mehmet', 'Hasan', 'Ali', 'Hasan'])
+c = a[b == 'Hasan']
+d = a[~(b == 'Hasan')]
+print("a :", type(a), a.shape, a.dtype)
+print(a)
+print("b :", type(b), b.shape, b.dtype)
+print(b)
+print("c :", type(c), c.shape, c.dtype)
+print(c)
+
+a = np.arange(5) - 2
+b = np.diag(a)
+print(a, b, sep='\n\n')
+
+data = np.loadtxt('data/populations.txt')
+
+a = np.array([[1, 2, 3], [4, 5, 6]])
+a.ravel()
+b = b.reshape((2, 3))
+
+a = np.arange(4)
+a.resize((8,))
+b = np.sort(a, axis=1)
+a.sort(axis=1)
+
+a = np.zeros((1e6,), dtype=np.float64)
+b = np.zeros((1e6,), dtype=np.float32)
+%timeit a*a
+%timeit b*b
+
+a = np.arange(6)*np.pi/10
+b = np.degrees(a)
+c = b.shape
+d = np.zeros(c)
+e = np.degrees(a, d)
+f = np.all(d == e)
+print(a, b, c, d, e, f, sep="\n")
+
+np.cumsum(a,axis=0)
+
+b = np.array([1, 2e-9, 3e-9] * 1000000)
+b.cumsum()[-1]
+b.sum()
+
+np.exp2([2, 3])
+np.log([1, np.e, np.e**2, 0])
+np.log10([1e-15, -3.])
+np.log2(x)
+
+np.lcm(12, 20)
+np.gcd(12, 20)
+
+np.multiply(2.0, 4.0)
+
+x1 = np.arange(6)
+x2 = [1.0, 2.0, 3.0, 3.0, 2.0, 1.0]
+np.power(x1, 3)
+np.power(x1, x2)
+x2 = np.array([1, 2, 3, 3, 2, 1])
+x1 = np.arange(6)
+x1 ** x2
+
+np.divmod(np.arange(5), 3)
+x = np.arange(5)
+divmod(x, 3)
+
+a = np.array([1+2j, 3+4j, 5+6j])
+a.real
+
+a = np.array([1+2j, 3+4j, 5+6j])
+a.imag
+a.imag = np.array([8, 10, 12])
+
+np.conjugate(1+2j)
+
+I = np.eye(2, dtype='f'); I.dtype
+low, high = np.byte_bounds(I)
+high - low == I.size*I.itemsize
+I = np.eye(2);
+
+x = np.pi * np.linspace(-1, 1, 251)
+y = np.sin(x)
+lr = 1e-6
+a = np.random.randn()
+b = np.random.randn()
+c = np.random.randn()
+d = np.random.randn()
+for n in range(15001):
+    Out = a + b * x + c * x**2 + d * x**3
+    Loss = np.square(Out - y).sum()
+    if n % 1000 == 0:
+        print(n, Loss)
+    Grad = 2.0 * (Out - y)
+    a -= lr * Grad.sum()
+    b -= lr * (Grad * x).sum()
+    c -= lr * (Grad * x**2).sum()
+    d -= lr * (Grad * x**3).sum()
+print(f'\na = {a}\nb = {b}\nc = {c}\nd = {d}\n')
+x = np.array([0, 1/6, 1/4, 1/3, 1/2]) * np.pi
+y = np.sin(x)
+Out = a + b * x + c * x**2 + d * x**3
+for n in range(5):
+    print(y[n], Out[n])
+
+a = 1 + np.arange(12)
+print(type(a), a, sep='\n')
+for n in range(3):
+    if n == 0:
+        b = a.copy()
+    elif n == 1:
+        b = a.reshape(3, 4)
+    else:
+        b = a.reshape(4, 3)
+    print('', b, b.ndim, b.size, b.shape, len(b), sep='\n')
+
+import time
+n = 15000000
+a = np.random.rand(n)
+b = np.random.rand(n)
+tic = time.time()
+c = a[0] * b[0]
+for i in range(1, n):
+    c += a[i] * b[i]
+toc = time.time()
+print(c, type(c))
+print('Süre :', 1000*(toc-tic), 'ms\n')
+tic = time.time()
+d = sum(a * b)
+toc = time.time()
+print(d, type(d))
+print('Süre :', 1000*(toc-tic), 'ms\n')
+tic = time.time()
+f = np.dot(a, b)
+toc = time.time()
+print(f, type(f))
+print('Süre :', 1000*(toc-tic), 'ms\n')
+
+a = np.random.randint(0, 100, (3, 4))
+for row in a:
+    print(row)
+for element in a.flat:
+    print(element)
+
+a = 10*np.random.random((3, 4))
+b = 10*np.random.random((3, 4))
+c = np.floor(a)
+d = np.floor(b)
+e = np.vstack((c, d))
+f = np.hstack((c, d))
+print(type(a), a, sep='\n')
+print(type(b), b, sep='\n')
+print(type(c), c, sep='\n')
+print(type(d), d, sep='\n')
+print(type(e), e, sep='\n')
+print(type(f), f, sep='\n')
+
+a = np.array([7, 2, 1, 9, 1, 3, 2, 9])
+b = a.argsort()
+print(type(a), a, a.dtype, sep='\n')
+print('', type(b), b, b.dtype, sep='\n')
+
+a = np.arange(24).reshape((2, 3, 4))
+np.save('hasan', a)
+b = np.load('hasan.npy')
+print(type(a), a, a.shape, a.dtype, sep='\n')
+print(type(b), b, b.shape, a.dtype, sep='\n')
+
+L1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+A1 = np.array(L1)
+L2 = A1.tolist()
+A2 = np.arange(10)
+A3 = A2.copy()
+print(type(L1), L1, sep="\n", end="\n\n")
+print(type(A1), A1, sep="\n", end="\n\n")
+print(type(L2), L2, sep="\n", end="\n\n")
+print(type(A2), A2, sep="\n", end="\n\n")
+print(type(A3), A3, sep="\n", end="\n\n")
+
+A = np.array([12, 43, 72, 19, 51, 93, 75, 13, 65, 37, 27, 81])
+print(type(A), A, sep="\n")
+for n in range(3):
+    if n == 0:
+        a = A.copy()
+    elif n == 1:
+        a = A.reshape(3,4)
+    else:
+        a = A.reshape(4,3)
+    print()
+    print(a)
+    print(a.ndim)
+    print(a.size)
+    print(a.shape)
+    print(len(a))
+
+a = np.diag(np.arange(4))
+a[2, 1] = 10
+print(a)
+print(a[2])
+
+p = np.polynomial.Polynomial([-1, 2, 3])
+print(p(0))
+print(p.roots)
+print(p.degree())
+
+import numpy as np
+import timeit
+def Sum1(n = 10_000_000):
+    i = 0
+    s = 0
+    while i < n:
+        s += i
+        i += 1
+    return s
+def Sum2(n = 10_000_000):
+    s = 0
+    for i in range(n):
+        s += i
+    return s
+def Sum3(n = 10_000_000):
+    return sum(range(n))
+def Sum4(n = 10_000_000):
+    return np.sum(np.arange(n))
+t1 = timeit.timeit(Sum1, number=1)
+t2 = timeit.timeit(Sum2, number=1)
+t3 = timeit.timeit(Sum3, number=1)
+t4 = timeit.timeit(Sum4, number=1)
+print('Durations')
+print(' Sum 1 :', t1, 'sec')
+print(' Sum 2 :', t2, 'sec')
+print(' Sum 3 :', t3, 'sec')
+print(' Sum 4 :', t4, 'sec')
+
+import numpy as np
+a = np.arange(1000)
+type(a)
+timeit a**2
+b= range(1000)
+type(b)
+timeit [x**2 for x in a]
+
+c = np.hypot(a, b)
+
+x = np.array([0, 30, 45, 60, 90]) * np.pi / 180
+y = map(np.sin, x)
+z = list(y)
+print(x)
+print(y)
+print(z)
+a = np.sin(x)
+print(a)
+
+Mean, Std = 10, 5
+a = np.random.normal(Mean,Std,1000)
+print(a)
+
+x = np.arange(1, 25).reshape(12,2)
+y = np.array([0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0])
+xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size=0.5, , stratify=y)
+print(x, y, xTrain, yTrain, xTest, yTest, sep="\n")
+xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size=0.5, shuffle=False)
+print(x, y, xTrain, yTrain, xTest, yTest, sep="\n")
+
+Ids = np.random.permutation(nAll)
+xAll = xAll[Ids,...]
+yAll = yAll[Ids]
+print(xAll.shape,yAll.shape)
+P2 = int(0.15*xAll.shape[0])
+P1 = xAll.shape[0] - 2*P2
+P1, P2
+xTrain = xAll[0:P1,...]
+yTrain = yAll[0:P1]
+xTest = xAll[P1:P1+P2,...]
+yTest = yAll[P1:P1+P2]
+xValid = xAll[P1+P2:,...]
+yValid = yAll[P1+P2:]
+print("xTrain :", xTrain.shape, type(xTrain), xTrain.dtype)
+print(" xTest :", xTest.shape, type(xTest), xTest.dtype)
+print("xValid :", xValid.shape, type(xValid), xValid.dtype)
+print("yTrain :", yTrain.shape, type(yTrain), yTrain.dtype)
+print(" yTest :", yTest.shape, type(yTest), yTest.dtype)
+print("yValid :", yValid.shape, type(yValid), yValid.dtype)
+
+Im5 = np.swapaxes(Im4, 0, 1)
+img = np.expand_dims(img, axis=-1)
+img = np.repeat(img, 3, 2)
+
+x = np.array([0, 30, 45, 60, 90]) * np.pi / 180
+y = map(np.sin, x)
+z = list(y)
+print(x)
+print(y)
+print(z)
+a = np.sin(x)
+print(a)
+
+import random
+B = [0, 100, 200, 300, 400, 500]
+N = len(B)
+z = random.shuffle(a)
+word = random.choice(WORDS)
+TopN = 10
+a = TopN * [0]
+N = 1000 * TopN
+for n in range(N):
+    k = random.randint(0, TopN - 1)
+    a[k] += 1
+print("\n%s : %d" % ("Çekiliş Sayısı", N))
+print("%8s%9s" % ("Gelen", "Frekans"))
+for k in range(TopN):
+    print("%7d%10d" % (k + 1, a[k]))

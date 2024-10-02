@@ -1,0 +1,288 @@
+www.python.org
+www.jetbrains.com/pycharm
+www.anaconda.com
+code.visualstudio.com
+
+python
+exit()
+
+python --version
+python -V
+pip --version
+pip -V
+
+python -m pip install --upgrade pip
+
+cmd
+d:
+md Hasan
+cd Hasan
+cls
+exit
+
+Packets.txt
+numpy
+pandas
+scipy
+Pillow
+Cython
+matplotlib
+scikit-image
+scikit-learn
+tensorflow
+opencv-python
+h5py
+imgaug
+pycocotools
+torch
+PyQt5
+IPython[all]
+pip install -r Packets.txt
+
+pip install notebook
+pip uninstall notebook
+pip show notebook
+jupyter notebook
+
+pip show tensorflow
+pip show keras
+pip show h5py
+pip uninstall tensorflow
+pip uninstall keras
+pip uninstall h5py
+
+pip install numpy
+pip install -U numpy
+pip install --upgrade numpy
+
+pip install matplotlib
+pip install -U matplotlib
+pip install --upgrade matplotlib
+
+pip install numpy
+pip install pandas
+pip install scipy
+pip install Pillow
+pip install Cython
+pip install matplotlib
+pip install scikit-image
+pip install scikit-learn
+pip install tensorflow
+pip install opencv-python
+pip install h5py
+pip install imgaug
+pip install IPython[all]
+pip install pycocotools
+pip install torch
+pip install PyQt5
+pip install seaborn
+pip install imblearn
+pip install plotly
+pip install --upgrade requests
+
+import keyword, random, decimal
+import glob, platform, functools
+import datetime, timeit, time
+import math, sys, os, io
+import matplotlib.pyplot as plt
+import numpy as np
+print(keyword, random, decimal, sep="\n")
+print(glob, platform, functools, sep="\n")
+print(datetime, timeit, time, sep="\n")
+print(math, sys, os, io, plt, np, sep="\n")
+
+import matplotlib.pyplot as plt
+a = dir(plt)
+print(*a, sep="\n")
+print(25*"-", plt, sep="\n")
+print(type(a), len(a))
+
+import numpy as np
+a = dir(np)
+print(*a, sep="\n")
+print(25*"-", np, sep="\n")
+print(type(a), len(a))
+print(np.version.version)
+print(np.__version__)
+
+import sys
+a = dir(sys)
+print(*a, sep="\n")
+print(25*"-", sys, sep="\n")
+print(type(a), len(a))
+
+import os
+a = dir(os)
+print(*a, sep="\n")
+print(25*"-", os, sep="\n")
+print(type(a), len(a))
+
+import io
+a = dir(io)
+print(*a, sep="\n")
+print(25*"-", io, sep="\n")
+print(type(a), len(a))
+
+import keyword
+a = dir(keyword)
+print(*a, sep="\n")
+print(25*"-", keyword, sep="\n")
+print(type(a), len(a))
+
+import keyword
+a = keyword.kwlist
+print(*a, sep="\n")
+print(25*"-", "\nAnahtar Kelimeler")
+print(type(a), len(a))
+
+import os
+a = dir(os)
+print(*a, sep="\n")
+s = 25*"-"
+print(s, os, sep="\n")
+print(type(a), len(a))
+print(s)
+help(os.mkdir)
+print(s, os.mkdir, s, sep="\n")
+help(os.path.dirname)
+print(s, os.path.dirname, sep="\n")
+
+import platform
+a = dir(platform)
+print(*a, sep="\n", end="\n\n")
+print(a)
+print(type(a), len(a), end="\n\n")
+b = platform.system
+c = platform.system()
+print(b, c, type(c), len(c), sep="\n")
+
+import sys
+a = sys.path
+print(*a, sep="\n")
+print(40*"-", a, type(a), sep="\n")
+a = sys.version
+print(40*"-", a, type(a), sep="\n")
+
+import sys
+a = sys.path
+print(*a, sep="\n")
+print(type(a), len(a), end="\n\n")
+a = sys.argv
+print(*a, sep="\n")
+print(type(a), len(a), end="\n\n")
+a = sys.version
+print(a)
+print(type(a), len(a), end="\n\n")
+
+# help(str)
+# help(str.format)
+# help(str.lower)
+# help(str.split)
+# help(str.strip)
+# help(str.rstrip)
+# help(str.lstrip)
+help(str.format)
+print(str.format)
+
+help(print)
+print(type(print), 80*"-", sep="\n")
+help(len)
+print(type(len), sep="\n")
+
+run Test.py
+whos
+a = [0,1,2,3,4,5,6,7,8,9]
+type(a)
+a[:5]
+a[5:]
+a[::2]
+import os
+os.getcwd()
+os.listdir(os.curdir)
+import glob
+glob.glob('*.txt')
+import sys
+sys.platform
+sys.version
+sys.prefix
+sys.argv
+sys.path
+
+print?
+help?
+%whos
+10/7
+def Func(*args, **kwargs):
+    print('args is', args)
+    print('kwargs is', kwargs)
+Func('one', 'two', x=1, y=2, z=3)
+Func?
+import sys
+sys.path
+import os
+os.listdir(os.curdir)
+os.getcwd()
+os.mkdir('junkdir')
+os.rename('junkdir', 'foodir')
+a = os.path.abspath('junk.txt')
+os.path.split(a)
+os.path.dirname(a)
+os.path.basename(a)
+s.path.exists('junk.txt')
+os.path.isfile('junk.txt')
+os.path?
+os.path.join(os.path.expanduser('~'), 'local', 'bin')
+s.path.expanduser('~/local')
+os.system('ls')
+
+import os
+os.path.expanduser('~')
+os.path.sep
+
+root = os.path.abspath("../Dataset")
+root
+
+a = os.listdir(root)
+a
+
+b = os.path.join(root, a[0])
+b
+
+import math
+# help(math)
+a = dir(math)
+s = 20*'-'
+print(*a, s, len(dir(math)), sep='\n')
+
+import sys
+sys.path.append(d)
+
+import os
+a = os.path.abspath("")
+b = os.path.abspath("../")
+c = os.path.abspath("../Pictures")
+d = os.path.isdir(c)
+e = os.path.abspath("../Pictures/Rsm00.jpg")
+f = os.path.join(c, "Rsm00.jpg")
+g = os.path.isfile(f)
+print(a, b, c, d, e, f, g, sep="\n")
+
+e = os.cpu_count()
+
+import time
+print(time, type(time), 25*"-", sep="\n")
+print(*dir(time), sep="\n")
+
+import tensorflow as tf
+print(tf.__version__)
+
+print(tensorflow.__version__)
+print(keras.__version__)
+print(skimage.__version__)
+
+import seaborn as sns
+sns.set()
+
+import numpy as np
+print("   Name:", np.__name__)
+print("Version:", np.__version__)
